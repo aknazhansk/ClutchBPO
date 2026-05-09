@@ -1,11 +1,172 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="ClutchBPO — Coming Soon"
+	description="ClutchBPO is launching soon. World-class business process outsourcing, built for performance."
+>
+	<main class="page">
+		<div class="content">
+			<div class="brand">
+				<span class="mark">Clutch</span><span class="mark mark--accent">BPO</span>
+			</div>
+
+			<h1 class="headline">Coming soon.</h1>
+
+			<p class="tagline">
+				World-class business process outsourcing,
+				<br class="break" />
+				built for performance.
+			</p>
+
+			<a class="contact" href="mailto:hello@clutchbpo.com">
+				hello@clutchbpo.com
+			</a>
+		</div>
+
+		<footer class="footer">
+			<span>© {new Date().getFullYear()} ClutchBPO. All rights reserved.</span>
+		</footer>
+	</main>
 </Layout>
+
+<style>
+	.page {
+		min-height: 100vh;
+		min-height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem 1.5rem;
+		color: #f5f5f7;
+		background:
+			radial-gradient(ellipse at top, rgba(99, 102, 241, 0.18), transparent 55%),
+			radial-gradient(ellipse at bottom right, rgba(236, 72, 153, 0.12), transparent 60%),
+			#0a0a0f;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.page::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+		background-size: 48px 48px;
+		mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+		-webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+		pointer-events: none;
+	}
+
+	.content {
+		position: relative;
+		text-align: center;
+		max-width: 720px;
+		animation: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.brand {
+		font-size: clamp(1.25rem, 2vw, 1.5rem);
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		margin-bottom: 2.5rem;
+		opacity: 0.95;
+	}
+
+	.mark {
+		color: #f5f5f7;
+	}
+
+	.mark--accent {
+		background: linear-gradient(135deg, #818cf8, #ec4899);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.headline {
+		font-size: clamp(3rem, 9vw, 6rem);
+		font-weight: 700;
+		line-height: 1.05;
+		letter-spacing: -0.03em;
+		margin: 0 0 1.5rem;
+		background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.tagline {
+		font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+		line-height: 1.6;
+		color: #a1a1aa;
+		margin: 0 auto 3rem;
+		max-width: 38ch;
+	}
+
+	.break {
+		display: none;
+	}
+
+	@media (min-width: 640px) {
+		.break {
+			display: inline;
+		}
+	}
+
+	.contact {
+		display: inline-block;
+		padding: 0.875rem 1.75rem;
+		border-radius: 9999px;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: rgba(255, 255, 255, 0.04);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		color: #f5f5f7;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.contact:hover {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.25);
+		transform: translateY(-1px);
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 0;
+		right: 0;
+		text-align: center;
+		font-size: 0.8125rem;
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	@keyframes fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.content {
+			animation: none;
+		}
+	}
+</style>
